@@ -22,7 +22,7 @@ const Tabs = (topics) => {
   for(let i = 0; i < topics.length; i++){
     const tab = document.createElement('div');
     tab.classList.add('tab');
-    tab.textContent = topic[i];
+    tab.textContent = topics[i];
     topicsElem.appencChild(tab);
   }
   return topicsElem;
@@ -48,13 +48,12 @@ const tabsAppender = (selector) => {
   //
   axios.get('http://localhost:5000/api/topics')
     .then(resp => {
-    for(let i = 0; i < resp.data.length; i++){
-
-    }
-  })
-  .catch(error => {
-    console.error(error);
-  })
-}
+      const topicsTab = Tabs(resp.data.topics);
+      document.querySelector(selector).appencChild(topicsTab);
+    })
+    .catch(err => {
+      console.error(error);
+    })
+  }
 
 export { Tabs, tabsAppender }

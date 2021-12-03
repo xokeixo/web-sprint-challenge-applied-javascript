@@ -61,7 +61,7 @@ const cardAppender = (selector) => {
   axios.get('http://localhost:5000/api/articles')
   .then(resp => {
     console.log(resp.data.articles);
-    for(let i = 0; i < Object.kets(resp.data.articles).length; i++){
+    for(let i = 0; i < Object.keys(resp.data.articles).length; i++){
       resp.data.articles[Object.keys(resp.data.articles)[i]].forEach(item => {
         document.querySelector(selector).append(Card(item))
       })
