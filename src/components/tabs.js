@@ -19,15 +19,24 @@ const Tabs = (topics) => {
 
   topicsElem.classList.add('topics');
 
-  topicsElem.forEach(topic => {
+  for(let i = 0; i < topics.length; i++){
     const tab = document.createElement('div');
     tab.classList.add('tab');
-    tab.textContent = topic;
+    tab.textContent = topic[i];
     topicsElem.appencChild(tab);
-  })
-
-  return topicsElem
+  }
+  return topicsElem;
 }
+
+//   topicsElem.forEach(topic => {
+//     const tab = document.createElement('div');
+//     tab.classList.add('tab');
+//     tab.textContent = topic;
+//     topicsElem.appencChild(tab);
+//   })
+
+//   return topicsElem
+// }
 
 const tabsAppender = (selector) => {
   // TASK 4
