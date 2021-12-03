@@ -67,7 +67,7 @@ const cardAppender = (selector) => {
       })
     }
   })
-  .catch(err => {
+  .catch(error => {
     console.error(error);
   })
 }
